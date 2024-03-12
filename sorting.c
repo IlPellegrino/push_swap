@@ -6,31 +6,18 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:03:11 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/11 17:10:19 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:12:04 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_small(t_stack *stack_a)
+void	ssmall(t_stack *stack_a)
 {
-	if (stack_a->size == 2)
-	{
-		if (stack_a->content > stack_a->next->content)
-			sa(stack_a);
-	}
-	else if (stack_a->size == 3)
-	{
-		
-	}
-	else if (stack_a->size == 4)
-	{
-		
-	}
-	else if (stack_a->size == 5)
-	{
-		
-	}
+	if (stack_a->size >= 1 && stack_a <= 3)
+		vsmall_sort(stack_a);
+	else if (stack_a->size >= 4 && stack_a->size <= 15)
+		small_sort(stack_a);
 }
 
 t_stack	*create_stack(char **argv)

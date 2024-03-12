@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   algos.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:03:27 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/12 17:54:24 by nromito          ###   ########.fr       */
+/*   Created: 2024/03/12 19:08:16 by nromito           #+#    #+#             */
+/*   Updated: 2024/03/12 19:08:43 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-
-typedef struct s_stack
+int	algo_median(t_stack *stack_a)
 {
-	void	*content;
-	int		size;
-	int		*array;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}				t_stack;
-
-
-
-#endif
+	int	*array;
+	int	median;
+	int	i;
+	int	tot_arr;
+	
+	i = 0;
+	array = malloc(sizeof(int *) * stack_a->size);
+	while (stack_a->next != NULL)
+	{
+		array[i++] = stack_a->content;
+		stack_a = stack_a->next;
+	}
+	i = -1;
+	while (++i <= stack_a->size)
+		tot_arr += array[i];
+	median = tot_arr / stack_a->size;
+	return (median);
+}

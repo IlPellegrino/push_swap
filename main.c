@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:12:25 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/11 17:24:35 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:07:41 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	// 	return (0);
 	// }
 	if (stack_a->size <= 5)
-		sort_small(stack_a);
+		ssmall(stack_a);
 	else
 		sort_big(stack_a);
 	free_stack(stack_a);
