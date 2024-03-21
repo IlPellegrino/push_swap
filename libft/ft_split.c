@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:58:12 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/04 17:43:24 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/18 17:04:27 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ char	**ft_split(char const *s, char const c)
 	matrix = malloc(sizeof(char *) * (words + 1));
 	if (!matrix)
 		return (NULL);
-	matrix[words] = '\0';
+	matrix[words] = 0;
 	return (fill_matrix(matrix, words, s, c));
 }
