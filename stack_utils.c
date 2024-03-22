@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:35:07 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/19 20:50:56 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/22 16:39:08 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+//NORMINETTATO OK
 
 t_stack	*ft_stack_new(int n)
 {
@@ -54,54 +55,15 @@ t_stack	*ft_stack_last(t_stack *stack)
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-    t_stack	*last;
-    t_stack *head;
+	t_stack	*last;
+	t_stack	*head;
 
-    if (*stack == NULL)
-    {
-        *stack = new;
-        return ;
-    }
-    last = ft_stack_last(*stack);
-    head = last;
-    last->next = new;
-}
-
-
-t_stack	*create_stack(char **argv)
-{
-	t_stack *stack;
-	int 	size;
-	int 	num;
-	
-	stack = NULL;
-	num = 0;
-	size = 0;
-	while (argv[size] != NULL)
-		size++;
-	size--;
-	while (size > 0)
+	if (*stack == NULL)
 	{
-		num = ft_atoi(argv[size]);
-		ft_stack_add_front(&stack, ft_stack_new(num));
-		size--;
+		*stack = new;
+		return ;
 	}
-	return (stack);
+	last = ft_stack_last(*stack);
+	head = last;
+	last->next = new;
 }
-
-// t_stack *create_stack_b(int size)
-// {
-// 	t_stack *tmp;
-// 	t_stack *stack;
-// 	int 	i;
-	
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		tmp = ft_stack_new(0);
-// 		ft_stack_add_front(&stack, tmp);
-// 		i++;
-// 	}
-// 	return (stack);
-// }
-

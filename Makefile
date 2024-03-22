@@ -6,12 +6,12 @@
 #    By: nromito <nromito@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 11:04:09 by nromito           #+#    #+#              #
-#    Updated: 2024/03/18 16:29:19 by nromito          ###   ########.fr        #
+#    Updated: 2024/03/22 11:44:15 by nromito          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-SRCS = sorting.c moves.c sorting_2.c stack.c commands_swap.c commands_push.c commands_r.c commands_rr.c algos.c main.c clean_and_error.c
+SRCS = sorting.c moves.c sorting_2.c stack_utils.c stack_ordinating.c commands_swap.c commands_push.c commands_r.c commands_rr.c algos.c main.c clean_and_error.c
 
 OBJS = ${SRCS:.c=.o}
 

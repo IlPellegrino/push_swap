@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:03:11 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/20 20:15:31 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/22 17:06:20 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@ void	sorting(t_stack **stack_a, int size)
 {
 	if (size >= 1 && size <= 3)
 		sort_three(stack_a, size);
-	// else if (size >= 4 && size <= 5)
-	// 	sort_five(stack_a, size);
 	else
 		sort_all(stack_a, size);
 }
 
-void sort_all(t_stack **stack_a, int size)
+void	sort_all(t_stack **stack_a, int size)
 {
-	t_stack *stack_b;
-	int 	*arr;
+	t_stack	*stack_b;
+	int		*arr;
 	int		j;
 
 	arr = create_arr((*stack_a), size);
@@ -33,7 +31,6 @@ void sort_all(t_stack **stack_a, int size)
 		ft_error(1);
 	j = target_choice(arr, size);
 	stack_b = NULL;
-	// stack_b = create_stack_b(size);
 	while (size > 2)
 	{
 		first_sorting(stack_a, &stack_b, j, size);
@@ -42,35 +39,15 @@ void sort_all(t_stack **stack_a, int size)
 		arr = create_arr((*stack_a), size);
 		j = target_choice(arr, size);
 	}
-	sort_two(stack_a);
-//	sort_three(stack_a, size);
-	second_sorting(stack_b, stack_a);
-	// move_to_a(&stack_b, stack_a, size);
 	free(arr);
-	// free_stack(stack_b);
-}
-
-int target_choice(int *arr, int size)
-{
-	if (size == 2)
-		return (arr[0]);
-//	if (size <= 50)
-//		return (arr[size / 3]);
-	if (size <= 100)
-		return (arr[size / 4]);
-	// else if (size <= 200)
-	// 	return (arr[size / 6]);
-	// else if (size <= 300)
-	// 	return (arr[size / 8]);
-	else if (size <= 400)
-		return (arr[size / 6]);
-	else
-		return (arr[size / 10]);
+	sort_two(stack_a);
+	second_sorting(stack_b, stack_a);
+	stack_b = NULL;
 }
 
 void	first_sorting(t_stack **stack_a, t_stack **stack_b, int j, int size)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = NULL;
 	node = *stack_a;
@@ -93,12 +70,12 @@ void	first_sorting(t_stack **stack_a, t_stack **stack_b, int j, int size)
 			node = node->next;
 	}
 }
+
 void	second_sorting(t_stack *stack_b, t_stack **stack_a)
 {
-	t_stack *node;
-	t_stack *second_max;
-	int size;
-	
+	int		size;
+	t_stack	*node;
+
 	node = stack_b;
 	size = ft_stack_size(stack_b);
 	ft_index(stack_b);
@@ -109,6 +86,14 @@ void	second_sorting(t_stack *stack_b, t_stack **stack_a)
 		ft_index(stack_b);
 		size--;
 	}
+	half_2(stack_b, stack_a, node, size);
+}
+
+void	half_2(t_stack *stack_b, t_stack **stack_a, t_stack *node, int size)
+{
+	t_stack	*second_max;
+
+	second_max = NULL;
 	while (stack_b)
 	{
 		node = get_max(stack_b);
@@ -123,32 +108,4 @@ void	second_sorting(t_stack *stack_b, t_stack **stack_a)
 		size--;
 		ft_index(stack_b);
 	}
-}
-
-t_stack *get_second_max(t_stack *stack_b, t_stack *node)
-{
-	t_stack *second_max;
-	
-	second_max = NULL;
-	while (stack_b != NULL)
-	{
-		if (node->n + stack_b->n > second_max->n)
-			second_max = stack_b;
-		stack_b = stack_b->next;
-	}
-	return (second_max);
-}
-
-t_stack	*get_max(t_stack *stack)
-{
-	t_stack	*max;
-	
-	max = stack;
-	while (stack != NULL)
-	{
-		if (stack->n > max->n)
-			max = stack;
-		stack = stack->next;
-	}
-	return (max);
 }

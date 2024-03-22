@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:03:43 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/19 20:47:44 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/22 19:03:15 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@ void	ft_error(int error_code)
 	exit(1);
 }
 
-void ft_error_free(t_stack **stack)
+void	ft_error_free(t_stack **stack)
 {
-	// free_stack(*stack);
-	(void)stack;
+	free_stack(stack);
 }
 
-void  free_matrix(char **matrix)
+void	free_matrix(char **matrix)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (matrix[i])
@@ -40,14 +39,23 @@ void  free_matrix(char **matrix)
 	free(matrix);
 }
 
-// void free_stack(t_stack *stack)
-// {
-// 	t_stack *tmp;
+void	free_stack(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack	*temp2;
 
-// 	// while (stack)
-// 	// {
-// 	// 	tmp = stack;
-// 	// 	stack = stack->next;
-// 	// }
-// }
-
+	temp2 = NULL;
+	temp = NULL;
+	temp = *stack;
+	if (!stack || !temp)
+		return ;
+	while (temp->next != NULL)
+	{
+		temp2 = temp->next;
+		free(temp);
+		temp = temp2;
+	}
+	free(temp);
+	*stack = NULL;
+	stack = NULL;
+}

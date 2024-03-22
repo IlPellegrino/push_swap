@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:09:30 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/19 17:54:37 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/22 19:24:05 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	rotate(t_stack **stack)
 {
-    t_stack	*first;
-    t_stack	*last;
-    t_stack *head;
+	t_stack	*first;
+	t_stack	*last;
+	t_stack	*head;
 
-    if (stack == NULL || (*stack)->next == NULL)
-        return ;
-    first = (*stack);
-    last = ft_stack_last(*stack);
-    head = last;
-    (*stack) = first->next;
-    first->next = NULL;
-    head->next = first;
+	if (stack == NULL || (*stack)->next == NULL)
+		return ;
+	first = (*stack);
+	last = ft_stack_last(*stack);
+	head = last;
+	(*stack) = first->next;
+	first->next = NULL;
+	head->next = first;
 }
 
 void	ra(t_stack **stack_a)

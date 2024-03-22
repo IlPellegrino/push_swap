@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:07:12 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/20 11:13:47 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/22 19:24:14 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	reverse_rotate(t_stack **stack)
 {
-    t_stack	*last;
-    t_stack	*first;
-    t_stack	*head;
-    t_stack	*temp;
+	t_stack	*last;
+	t_stack	*first;
+	t_stack	*head;
+	t_stack	*temp;
 
-    if (stack == NULL || (*stack)->next == NULL)
-        return ;
-    last = ft_stack_last(*stack);
-    first = *stack;
-    head = *stack;
-    while (head->next != last)
-        head = head->next;
-    temp = head->next;
-    head->next = NULL;
-    temp->next = first;
-    *stack = temp;
+	if (stack == NULL || (*stack)->next == NULL)
+		return ;
+	last = ft_stack_last(*stack);
+	first = *stack;
+	head = *stack;
+	while (head->next != last)
+		head = head->next;
+	temp = head->next;
+	head->next = NULL;
+	temp->next = first;
+	*stack = temp;
 }
 
 void	rra(t_stack **stack_a)
