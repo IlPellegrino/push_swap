@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:03:27 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 19:13:13 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:13:07 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }				t_stack;
-//main.c
-t_stack	*ft_argv_check(char **argv);
-void	check_duplicates(int argc, char **argv);
 //moves.c
 void	move_to_b(t_stack **stack_a, t_stack **stack_b, int index, int size);
 void	move_to_a(t_stack **stack_b, t_stack **stack_a, int index, int size);
@@ -64,7 +61,7 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 //clean_and_error.c
-void	ft_error(int error_code);
+void	ft_error(t_stack *stack, int error_code);
 void	ft_error_free(t_stack **stack_a);
 void	free_matrix(char **matrix);
 void	free_stack(t_stack **stack);

@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:03:11 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 17:06:20 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:24:43 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sort_all(t_stack **stack_a, int size)
 
 	arr = create_arr((*stack_a), size);
 	if (arr == NULL)
-		ft_error(1);
+		ft_error(*stack_a, 3);
 	j = target_choice(arr, size);
 	stack_b = NULL;
 	while (size > 2)

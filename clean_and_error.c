@@ -6,17 +6,19 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:03:43 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 19:03:15 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:18:38 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(int error_code)
+void	ft_error(t_stack *stack, int error_code)
 {
+	if (stack != NULL)
+		free_stack(&stack);
 	if (error_code == 0)
 		ft_putstr_fd("Error\n", 2);
-	else if (error_code == 1)
+	else
 		ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

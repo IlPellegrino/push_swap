@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:35:07 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 16:39:08 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 15:51:21 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ t_stack	*ft_stack_last(t_stack *stack)
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
-	t_stack	*head;
 
 	if (*stack == NULL)
 	{
@@ -64,6 +63,5 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 		return ;
 	}
 	last = ft_stack_last(*stack);
-	head = last;
 	last->next = new;
 }

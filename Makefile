@@ -26,7 +26,7 @@ GREEN = '\033[0;32m'
 YELLOW = '\033[0;33m'
 BLUE = '\033[0;34m'
 
-COMPILE = cc -Wall -Wextra -Werror -g
+COMPILE = gcc -Wall -Wextra -Werror -g
 
 all: ${NAME}
 

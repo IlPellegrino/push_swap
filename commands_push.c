@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:05:57 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 11:29:11 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 15:55:32 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,11 @@
 void	push(t_stack **stack_from, t_stack **stack_to)
 {
 	t_stack	*tmp;
-	t_stack	*head;
 
-	head = NULL;
 	if (stack_from == NULL || *stack_from == NULL)
 		return ;
 	tmp = *stack_from;
 	*stack_from = (*stack_from)->next;
-	if (*stack_from != NULL)
-		head = *stack_from;
 	tmp->next = NULL;
 	ft_stack_add_front(stack_to, tmp);
 }

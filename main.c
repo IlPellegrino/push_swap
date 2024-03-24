@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:12:25 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 19:42:51 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:20:40 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*ft_argv_check(char **argv)
 		if (check_num(num, matrix[i]) == 0)
 		{
 			free_matrix(matrix);
-			ft_error(1);
+			ft_error(stack, 1);
 		}
 		tmp = ft_stack_new(num);
 		ft_stack_add_front(&stack, tmp);
@@ -42,22 +42,22 @@ t_stack	*ft_argv_check(char **argv)
 	return (stack);
 }
 
-void	check_duplicates(int argc, char **argv)
+void	check_duplicates(t_stack *stack_a)
 {
-	int		i;
-	int		j;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
-	i = 1;
-	while (i < argc)
+	tmp = stack_a;
+	while (tmp->next != NULL)
 	{
-		j = i + 1;
-		while (j < argc)
+		tmp2 = tmp->next;
+		while (tmp2 != NULL)
 		{
-			if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])) == 0)
-				ft_error(0);
-			j++;
+			if (tmp->n == tmp2->n)
+				ft_error(stack_a, 0);
+			tmp2 = tmp2->next;
 		}
-		i++;
+		tmp = tmp->next;
 	}
 }
 
@@ -69,7 +69,6 @@ int	is_sorted(t_stack *stack_a)
 			return (0);
 		stack_a = stack_a->next;
 	}
-	free_stack(&stack_a);
 	return (1);
 }
 
@@ -79,21 +78,20 @@ int	main(int argc, char **argv)
 	int		size;
 
 	stack_a = NULL;
-	if (argc < 2 || !argv[1][0])
+	if (argc < 2)
 		return (0);
+	if (!argv[1][0])
+		ft_error(stack_a, 0);
 	if (argc == 2)
-	{
 		stack_a = ft_argv_check(argv);
-		if (is_sorted(stack_a))
-			return (0);
-	}
 	else
-	{
 		stack_a = create_stack(argv);
-		if (is_sorted(stack_a))
-			return (0);
+	check_duplicates(stack_a);
+	if (is_sorted(stack_a) == 1)
+	{
+		free_stack(&stack_a);
+		return (0);
 	}
-	check_duplicates(argc, argv);
 	size = ft_stack_size(stack_a);
 	if (!stack_a)
 		ft_error_free(&stack_a);

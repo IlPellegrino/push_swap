@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:31:10 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 19:14:49 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:24:10 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack	*create_stack(char **argv)
 		if (check_num(num, argv[size]) == 0)
 		{
 			free_stack(&stack);
-			ft_error(1);
+			ft_error(stack, 1);
 		}
 		new = ft_stack_new(num);
 		ft_stack_add_front(&stack, new);
