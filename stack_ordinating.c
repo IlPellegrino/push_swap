@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:31:10 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/24 16:24:10 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 17:33:56 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ int	check_num(int num, char *argv)
 
 int	target_choice(int *arr, int size)
 {
-	if (size == 2)
+	if (size == 2 || size == 3)
 		return (arr[0]);
-	if (size <= 100)
+	else if (size == 5)
+		return (arr[size / 2]);
+	else if (size <= 100)
 		return (arr[size / 4]);
 	else if (size <= 400)
 		return (arr[size / 6]);

@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:36:27 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 13:06:05 by nromito          ###   ########.fr       */
+/*   Updated: 2024/03/24 17:36:02 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 void	sort_three(t_stack **stack_a, int size)
 {
-	if (size == 2 && (*stack_a)->n > (*stack_a)->next->n)
+	if (size == 1)
+		return ;
+	else if (size == 2 && (*stack_a)->n > (*stack_a)->next->n)
 		sa(stack_a);
 	else if ((*stack_a)->n > (*stack_a)->next->n
 		&& (*stack_a)->n > (*stack_a)->next->next->n)
