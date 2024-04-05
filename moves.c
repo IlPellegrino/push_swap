@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:30:50 by nromito           #+#    #+#             */
-/*   Updated: 2024/03/22 19:11:01 by nromito          ###   ########.fr       */
+/*   Updated: 2024/04/04 20:56:38 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	move_to_a(t_stack **stack_b, t_stack **stack_a, int index, int size)
 	{
 		while (index < size)
 		{
+			if (size == 1 && index == 0)
+				break;
 			rrb(stack_b);
 			index++;
 		}
